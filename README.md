@@ -146,7 +146,7 @@ VITE_WITH_CREDENTIALS=true
 
 ### **🔹 Backend Setup (Django)**
 ```bash
-git clone https://github.com/your-repository/library-management.git
+git clone https://github.com/anuj-consultadd/library_management.git
 cd library-management/backend
 python -m venv venv
 source venv/bin/activate  # Mac/Linux
