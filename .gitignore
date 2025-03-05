@@ -1,0 +1,105 @@
+# =======================
+# 🌍 General OS & System Files
+# =======================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.swn
+*.swd
+*.bak
+*.tmp
+*.cache
+*.lock
+
+# =======================
+# 🐍 Python / Django Backend
+# =======================
+# Bytecode files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Django Specific
+*.log
+db.sqlite3
+*.sqlite3
+celerybeat-schedule
+local_settings.py
+media/
+staticfiles/
+static/
+
+# Migrations (Exclude `__init__.py`)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Environment Variables
+.env
+.env.*
+*.pem  # Private keys
+
+# Pytest & Coverage Reports
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =======================
+# ⚛️ Node.js / React Frontend
+# =======================
+node_modules/
+dist/
+build/
+out/
+coverage/
+*.tsbuildinfo
+
+# Logs & Debugging
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Vite & Next.js Specific
+.vite/
+.next/
+.next/cache/
+
+# Environment Variables
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =======================
+# 📝 Editor & IDE Specific
+# =======================
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+
+# =======================
+# 🐳 Docker & CI/CD
+# =======================
+.dockerignore
+docker-compose.override.yml
+*.dockerfile
+*.dockerenv
+
+# =======================
+# 🏗️ Miscellaneous
+# =======================
+config/
+*.mo  # Compiled translations
+locale/
+*.pot  # Translation template files

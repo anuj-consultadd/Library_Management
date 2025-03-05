@@ -1,0 +1,429 @@
+{
+	"info": {
+		"_postman_id": "d18cc4f6-0972-4173-a97b-e7411c2157dc",
+		"name": "Django Library Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42583154"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin1\",\n    \"email\": \"admin1@example.com\",\n    \"password\": \"admin1\",\n    \"role\": \"admin\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}auth/signup/",
+							"host": [
+								"{{server}}auth"
+							],
+							"path": [
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"test\",\n    \"password\": \"test\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}auth/login/",
+							"host": [
+								"{{server}}auth"
+							],
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0MDQ5MjI4MywiaWF0IjoxNzQwNDA1ODgzLCJqdGkiOiI0M2E5ODI0MWEyYzE0OGJmYTc5MzRhY2UyNjQ3ZmE3YSIsInVzZXJfaWQiOjN9.7Yw9Msya2czGCEcx5I6ly-Cq6md1NdHQBSD6M2jwRiU\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}auth/token/refresh/",
+							"host": [
+								"{{server}}auth"
+							],
+							"path": [
+								"token",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "add book",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQwNDA3NjMzLCJpYXQiOjE3NDA0MDQwMzMsImp0aSI6ImM3NjNhZWVkMmZmZjRhZDg4NzQ0ZTM1MTNhODM2MTk4IiwidXNlcl9pZCI6M30.4KXBFVCVtiDI8FNc3tp2u5iEP3tWnncSGWHr_TqqTE0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"title\": \"The Great Gatsby\",\n        \"author\": \"F. Scott Fitzgerald\",\n        \"available\": true\n    },\n    {\n        \"title\": \"To Kill a Mockingbird\",\n        \"author\": \"Harper Lee\",\n        \"available\": true\n    },\n    {\n        \"title\": \"1984\",\n        \"author\": \"George Orwell\",\n        \"available\": true\n    }\n]\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}api/admin/books/",
+							"host": [
+								"{{server}}api"
+							],
+							"path": [
+								"admin",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQwNDA3NjMzLCJpYXQiOjE3NDA0MDQwMzMsImp0aSI6ImM3NjNhZWVkMmZmZjRhZDg4NzQ0ZTM1MTNhODM2MTk4IiwidXNlcl9pZCI6M30.4KXBFVCVtiDI8FNc3tp2u5iEP3tWnncSGWHr_TqqTE0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"The Great Gatsby\",\n    \"author\": \"F. Scott Fitzgerald\",\n    \"available\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}api/admin/books/",
+							"host": [
+								"{{server}}api"
+							],
+							"path": [
+								"admin",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQwNDA3NjMzLCJpYXQiOjE3NDA0MDQwMzMsImp0aSI6ImM3NjNhZWVkMmZmZjRhZDg4NzQ0ZTM1MTNhODM2MTk4IiwidXNlcl9pZCI6M30.4KXBFVCVtiDI8FNc3tp2u5iEP3tWnncSGWHr_TqqTE0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Inferno - Director's cut\",\n    \"author\": \"Dan Brown\",\n    \"available\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}api/admin/books/3/",
+							"host": [
+								"{{server}}api"
+							],
+							"path": [
+								"admin",
+								"books",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete book",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQwNDA3NjMzLCJpYXQiOjE3NDA0MDQwMzMsImp0aSI6ImM3NjNhZWVkMmZmZjRhZDg4NzQ0ZTM1MTNhODM2MTk4IiwidXNlcl9pZCI6M30.4KXBFVCVtiDI8FNc3tp2u5iEP3tWnncSGWHr_TqqTE0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}api/admin/books/1/",
+							"host": [
+								"{{server}}api"
+							],
+							"path": [
+								"admin",
+								"books",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check Borrowed books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQwNDA3NjMzLCJpYXQiOjE3NDA0MDQwMzMsImp0aSI6ImM3NjNhZWVkMmZmZjRhZDg4NzQ0ZTM1MTNhODM2MTk4IiwidXNlcl9pZCI6M30.4KXBFVCVtiDI8FNc3tp2u5iEP3tWnncSGWHr_TqqTE0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}api/admin/borrowed-books/",
+							"host": [
+								"{{server}}api"
+							],
+							"path": [
+								"admin",
+								"borrowed-books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get book details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQwNDA3NjMzLCJpYXQiOjE3NDA0MDQwMzMsImp0aSI6ImM3NjNhZWVkMmZmZjRhZDg4NzQ0ZTM1MTNhODM2MTk4IiwidXNlcl9pZCI6M30.4KXBFVCVtiDI8FNc3tp2u5iEP3tWnncSGWHr_TqqTE0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}api/admin/books/3/",
+							"host": [
+								"{{server}}api"
+							],
+							"path": [
+								"admin",
+								"books",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "member",
+			"item": [
+				{
+					"name": "member get all books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQwNDEwNjg5LCJpYXQiOjE3NDA0MDcwODksImp0aSI6ImE2ZGU3YzgxNmExYjQxZmY4ZjU1OTc4YjEzOGYwNzVhIiwidXNlcl9pZCI6MX0.QauAyaVMnKandJ7tP7d2dh3vQHkmbxDLJtP51I-FYNc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}api/books/",
+							"host": [
+								"{{server}}api"
+							],
+							"path": [
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrow books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQwNDEwNjg5LCJpYXQiOjE3NDA0MDcwODksImp0aSI6ImE2ZGU3YzgxNmExYjQxZmY4ZjU1OTc4YjEzOGYwNzVhIiwidXNlcl9pZCI6MX0.QauAyaVMnKandJ7tP7d2dh3vQHkmbxDLJtP51I-FYNc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/books/4/borrow/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"4",
+								"borrow",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "return book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQwNDEwNjg5LCJpYXQiOjE3NDA0MDcwODksImp0aSI6ImE2ZGU3YzgxNmExYjQxZmY4ZjU1OTc4YjEzOGYwNzVhIiwidXNlcl9pZCI6MX0.QauAyaVMnKandJ7tP7d2dh3vQHkmbxDLJtP51I-FYNc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server}}api/books/4/return/",
+							"host": [
+								"{{server}}api"
+							],
+							"path": [
+								"books",
+								"4",
+								"return",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book history",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQwNDEwNjg5LCJpYXQiOjE3NDA0MDcwODksImp0aSI6ImE2ZGU3YzgxNmExYjQxZmY4ZjU1OTc4YjEzOGYwNzVhIiwidXNlcl9pZCI6MX0.QauAyaVMnKandJ7tP7d2dh3vQHkmbxDLJtP51I-FYNc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/books/history/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"history",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
